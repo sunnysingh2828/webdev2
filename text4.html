@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Media Tags Example</title>
+</head>
+<body>
+    <h1>Media Tags in HTML</h1>
+
+    <h2>Image</h2>
+    <!-- Image Example -->
+<img src="menu.png" alt="Restaurant Menu" width="600">
+    <p>This is an image using the <code>&lt;img&gt;</code> tag.</p>
+
+    <h2>Audio</h2>
+    <!-- Audio Example -->
+    <audio controls>
+        <source src="audio-file.mp3" type="audio/mpeg">
+    <source src="audio-file.ogg" type="audio/ogg">
+        Your browser does not support the audio element.
+    </audio>
+    <p>This is an audio player using the <code>&lt;audio&gt;</code> tag.</p>
+
+    <h2>Video</h2>
+    <!-- Video Example -->
+    <video width="400" controls>
+        <source src="sample-video.mp4" type="video/mp4" />
+        <source src="sample-video.ogg" type="video/ogg" />
+        Your browser does not support the video tag.
+    </video>
+    <p>This is a video player using the <code>&lt;video&gt;</code> tag.</p>
+
+    <h2>Embedded Video (Iframe)</h2>
+    <!-- Iframe Example -->
+    <iframe width="400" height="250" 
+        src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+        title="YouTube Video" 
+        frameborder="0" 
+        allowfullscreen>
+    </iframe>
+    <p>This uses <code>&lt;iframe&gt;</code> to embed a YouTube video.</p>
+
+</body>
+</html>
