@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Student Registration Form</title>
+</head>
+<body>
+  <h1>Student Registration</h1>
+
+  <!--
+    Requirements met in this form:
+      - method and action attributes used on the <form>
+      - placeholder attributes on inputs
+      - required attributes on mandatory fields
+      - email validation using type="email" and a pattern + JS custom message
+      - No CSS (as requested)
+  -->
+
+  <form id="registrationForm" method="post" action="submit_form.php" autocomplete="on">
+
+    <label for="fullname">Full Name:</label><br>
+    <input type="text" id="fullname" name="fullname" placeholder="Enter your full name" required><br><br>
+
+    <label for="roll">Roll Number:</label><br>
+    <input type="text" id="roll" name="roll" placeholder="e.g. 2025CE123" required><br><br>
+
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email" placeholder="yourname@example.com" 
+           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Enter a valid email address" required>
+    <br><small id="emailHelp">We'll use this email to contact you.</small><br><br>
+
+    <label for="phone">Phone Number:</label><br>
+    <input type="tel" id="phone" name="phone" placeholder="10-digit mobile number" 
+           pattern="[0-9]{10}" title="Enter a 10-digit phone number" required><br><br>
+
+    <label for="dob">Date of Birth:</label><br>
+    <input type="date" id="dob" name="dob" required><br><br>
+
+    <label for="gender">Gender:</label><br>
+    <select id="gender" name="gender" required>
+      <option value="" disabled selected>Select gender</option>
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+      <option value="other">Other</option>
+    </select>
+    <br><br>
+
+    <label for="course">Course:</label><br>
+    <input type="text" id="course" name="course" placeholder="e.g. B.Tech (Electrical)" required><br><br>
+
+    <label for="password">Password:</label><br>
+    <input type="password" id="password" name="password" placeholder="Create a password" minlength="6" required><br><br>
+
+    <label for="confirm">Confirm Password:</label><br>
+    <input type="password" id="confirm" name="confirm_password" placeholder="Re-enter password" minlength="6" required><br><br>
+
+    <label for="address">Address:</label><br>
+    <textarea id="address" name="address" placeholder="Street, City, State, PIN" rows="3" required></textarea>
+    <br><br>
+
+    <button type="submit">Register</button>
+    <button type="reset">Reset</button>
+  </form>
+
+  <script>
+    // Custom validation for email to provide a clearer message
+    (function(){
+      var form = document.getElementById('registrationForm');
+      var email = document.getElementById('email');
+      var password = document.getElementById('password');
+      var confirm = document.getElementById('confirm');
+
+      // Email input: show custom message when invalid
+      email.addEventListener('input', function(){
+        // HTML5 type="email" plus pattern handles most cases; we only set/clear a message here
+        if (email.validity.valueMissing) {
+          email.setCustomValidity('Email is required.');
+        } else if (email.validity.typeMismatch || email.validity.patternMismatch) {
+          email.setCustomValidity('Please enter a valid email address like name@example.com');
+        } else {
+          email.setCustomValidity('');
+        }
+      });
+
+      // Password confirmation check
+      function checkPasswords(){
+        if (confirm.value === ''){
+          confirm.setCustomValidity('Please confirm your password.');
+        } else if (password.value !== confirm.value){
+          confirm.setCustomValidity('Passwords do not match.');
+        } else {
+          confirm.setCustomValidity('');
+        }
+      }
+
+      password.addEventListener('input', checkPasswords);
+      confirm.addEventListener('input', checkPasswords);
+
+      // Final check on submit (redundant but good practice)
+      form.addEventListener('submit', function(e){
+        checkPasswords();
+        // If form is invalid, prevent submission so browser shows errors
+        if (!form.checkValidity()){
+          e.preventDefault();
+          // Let the browser display the first invalid field
+          form.reportValidity();
+        }
+      });
+    })();
+  </script>
+
+</body>
+</html>
