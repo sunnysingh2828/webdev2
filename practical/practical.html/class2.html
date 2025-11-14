@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AMAZON WEBSITE DEMO</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{ --primary:#ff9900; --dark:#131921; --muted:#6b7280; --card:#ffffff; --maxw:1200px; --radius:14px;}
+    *{box-sizing:border-box}
+    body{font-family:Inter, system-ui, Arial;margin:0;background:#eaeef3;color:#0b1220;padding:20px}
+    .header{background:var(--dark);color:white;padding:12px 16px}
+    .header .inner{max-width:var(--maxw);margin:0 auto;display:flex;gap:12px;align-items:center}
+    .logo{font-weight:30;font-size:20px;color:var(--primary)}
+    .location{font-size:13px;color:#cfe0ff}
+    .searchbar{flex:1;display:flex;align-items:center;gap:6px}
+    .searchbar input{flex:1;padding:8px;border-radius:4px;border:0}
+    .searchbar button{background:var(--primary);border:0;padding:8px 12px;border-radius:4px;cursor:pointer}
+    .actions{display:flex;gap:12px;align-items:center}
+    .cart{background:var(--primary);color:var(--dark);padding:6px 10px;border-radius:6px;font-weight:700}
+
+    .subnav{background:#232f3e;color:white;padding:8px 16px}
+    .subnav .inner{max-width:var(--maxw);margin:0 auto;display:flex;gap:14px}
+    .wrap{max-width:var(--maxw);margin:18px auto;padding:0 16px}
+
+    /* New Hero Image Style */
+    .hero-banner {
+        width: 50%;
+        max-width: var(--maxw);
+        margin: 18px auto;
+        border-radius: 10px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.2); /* Added shadow for emphasis */
+        overflow: hidden;
+        display: block;
+    }
+    .hero-banner img {
+        width: 100%;
+        height: 100px; /* Set a fixed height for a large banner feel */
+        object-fit: cover;
+    }
+
+    /* 2x2 category boxes */
+    .grid-2x2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .box{background:#fff;border-radius:10px;padding:14px;box-shadow:0 8px 32px rgba(0,0,0,0.08)}
+    .box h3{margin:0 0 10px}
+    .box-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+    .product{background:#f8fbff;border-radius:8px;padding:8px;text-align:center}
+    .product img{width:100%;height:120px;object-fit:cover;border-radius:6px}
+    .pname{font-size:14px;margin:8px 0 4px;font-weight:600}
+    .pprice{font-weight:800;color:var(--primary)}
+    .pbtn{margin-top:8px;background:var(--dark);color:white;border:0;padding:8px;border-radius:6px;cursor:pointer}
+
+    /* responsive */
+    @media (max-width:900px){ .grid-2x2{grid-template-columns:1fr} .product img{height:110px} }
+
+    /* footer */
+    footer{max-width:var(--maxw);margin:28px auto;padding:18px;text-align:center;color:var(--muted)}
+  </style>
+</head>
+<body>
+  <header>
+    <img src="" alt="Amazon Banner" style="width:100%;border-radius:10px;">
+  </header>
+
+  <nav class="nav-bar" style="background:#131921;padding:12px 20px;display:flex;align-items:center;gap:22px;color:white;font-weight:600;font-size:15px;">
+    <span style="color:#ff9900;font-size:22px;font-weight:800;">amazon</span>
+    <a href="#" style="color:white;text-decoration:none;">Home</a>
+    <a href="#" style="color:white;text-decoration:none;">Products</a>
+    <a href="#" style="color:white;text-decoration:none;">Deals</a>
+    <a href="#" style="color:white;text-decoration:none;">Customer Service</a>
+  </nav>
+  
+  <div class="hero-banner">
+      <img src="https://images.unsplash.com/photo-1563242691-370c0c6e9a44?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80" alt="Summer Sale Hero Banner">
+  </div>
+  <div class="wrap"> <div class="grid-2x2">
+
+      <div class="box">
+        <h3>Laptops</h3>
+        <div class="box-grid">
+          <div class="product">
+            <img src="https://m.media-amazon.com/images/I/71CjP9jmqZL._AC_UY436_QL65_.jpg" alt="Macbook">
+            <p class="pname">Macbook</p>
+            <p class="pprice">₹89,000</p>
+            <button class="pbtn">Add to Cart</button>
+          </div>
+          <div class="product">
+            <img src="https://m.media-amazon.com/images/I/710ChwsODKL._AC_UY436_QL65_.jpg" alt="Dell">
+            <p class="pname">Dell</p>
+            <p class="pprice">₹55,000</p>
+            <button class="pbtn">Add to Cart</button>
+          </div>
+          <div class="product">
+            <img src="https://m.media-amazon.com/images/I/71r0BBNmBOL._SL1500_.jpg" alt="HP">
+            <p class="pname">HP</p>
+            <p class="pprice">₹48,000</p>
+            <button class="pbtn">Add to Cart</button>
+          </div>
+          <div class="product">
+            <img src="https://m.media-amazon.com/images/I/712WiT-wexL._SL1500_.jpg" alt="Lenovo">
+            <p class="pname">Lenovo</p>
+            <p class="pprice">₹42,000</p>
+            <button class="pbtn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="box">
+        <h3>Mobiles</h3>
+        <div class="box-grid">
+          <div class="product">
+            <img src="https://m.media-amazon.com/images/I/71T5NVOgbpL._AC_SL1500_.jpg" alt="iPhone">
+            <p class="pname">iPhone 15 pro</p>
+            <p class="pprice">₹1,40,000</p>
+            <button class="pbtn">Add to Cart</button>
+          </div>
+          <div class="product">
+            <img src="https://m.media-amazon.com/images/I/41zxe8LzGrL._SY300_SX300_QL70_ML2_.jpg" alt="Samsung">
+            <p class="pname">Samsung S25</p>
+            <p class="pprice">₹55,000</p>
+            <button class="pbtn">Add to Cart</button>
+          </div>
+          <div class="product">
+            <img src="https://m.media-amazon.com/images/I/51qG7EM6MZL._SL1000_.jpg" alt="Google Pixel">
+            <p class="pname">Google Pixel</p>
+            <p class="pprice">₹90,000</p>
+            <button class="pbtn">Add to Cart</button>
+          </div>
+          <div class="product">
+            <img src="" alt="OnePlus">
+            <p class="pname">OnePlus 11</p>
+            <p class="pprice">₹49,000</p>
+            <button class="pbtn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="box">
+        <h3>Cosmetics</h3>
+        <div class="box-grid">
+          <div class="product">
+            <img src="" alt="Foundation">
+            <p class="pname">Foundation</p>
+            <p class="pprice">₹900</p>
+            <button class="pbtn">Add to Cart</button>
+          </div>
+          <div class="product">
+            <img src="" alt="Lipstick">
+            <p class="pname">Lipstick Set</p>
+            <p class="pprice">₹450</p>
+            <button class="pbtn">Add to Cart</button>
+          </div>
+          <div class="product">
+            <img src="" alt="Compact">
+            <p class="pname">Compact Powder</p>
+            <p class="pprice">₹650</p>
+            <button class="pbtn">Add to Cart</button>
+          </div>
+          <div class="product">
+            <img src="" alt="Blush">
+            <p class="pname">Blush Palette</p>
+            <p class="pprice">₹550</p>
+            <button class="pbtn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="box">
+        <h3>Watches</h3>
+        <div class="box-grid">
+          <div class="product">
+            <img src="" alt="Luxury Watch">
+            <p class="pname">Luxury Watch</p>
+            <p class="pprice">₹3,50,000</p>
+            <button class="pbtn">Add to Cart</button>
+          </div>
+          <div class="product">
+            <img src="" alt="Classic Watch">
+            <p class="pname">Classic Fossil</p>
+            <p class="pprice">₹18,000</p>
+            <button class="pbtn">Add to Cart</button>
+          </div>
+          <div class="product">
+            <img src="" alt="Smart Watch">
+            <p class="pname">Boat Smartwatch</p>
+            <p class="pprice">₹2,500</p>
+            <button class="pbtn">Add to Cart</button>
+          </div>
+          <div class="product">
+            <img src="" alt="Apple Watch">
+            <p class="pname">Smart Band</p>
+            <p class="pprice">₹1,500</p>
+            <button class="pbtn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    &copy; All right Reserved For AMAZON WEBSITE DEMO.COM
+  </footer>
+</body>
+</html>
