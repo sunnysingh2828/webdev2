@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zomato Clone | Best Food & Drinks</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&display=swap" rel="stylesheet">
+    <style>
+        /* --- CSS STYLING --- */
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: #1c1c1c;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header / Navigation */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 10%;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: 10;
+            color: white;
+        }
+
+        .nav-links a {
+            margin-left: 25px;
+            font-size: 18px;
+            font-weight: 300;
+            transition: 0.2s;
+        }
+        
+        .nav-links a:hover {
+            font-weight: 500;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 60vh;
+            /* Dark overlay on hero image so text pops */
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero-logo {
+            font-size: 70px;
+            font-weight: 800;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        .hero-tagline {
+            font-size: 32px;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        /* Search Bar */
+        .search-container {
+            background: white;
+            padding: 10px;
+            border-radius: 10px;
+            display: flex;
+            width: 50%;
+            min-width: 320px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .search-input {
+            border: none;
+            outline: none;
+            padding: 10px 15px;
+            flex-grow: 1;
+            font-size: 16px;
+        }
+
+        .search-btn {
+            background-color: #ef4f5f; /* Zomato Red */
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 16px;
+            transition: background-color 0.2s;
+        }
+
+        .search-btn:hover {
+            background-color: #d63d4d;
+        }
+
+        /* Options Section */
+        .options-section {
+            padding: 50px 10%;
+            display: flex;
+            justify-content: space-between;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .option-card {
+            flex: 1;
+            min-width: 280px;
+            border: 1px solid #e8e8e8;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .option-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .option-img {
+            height: 180px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .option-info {
+            padding: 15px 20px;
+        }
+
+        .option-info h3 {
+            font-size: 22px;
+            margin-bottom: 5px;
+            color: #333;
+            font-weight: 500;
+        }
+        
+        .option-info p {
+            color: #666;
+            font-weight: 300;
+        }
+
+        /* Listings Section with Visible Background */
+        .listings-section {
+            padding: 50px 10%;
+            /* Lighter overlay (0.5 opacity) to make the background image visible */
+            background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Parallax effect */
+        }
+
+        .section-title {
+            font-size: 32px;
+            margin-bottom: 35px;
+            font-weight: 500;
+            color: #2c2c2c;
+            /* Subtle shadow to make title stand out from background */
+            text-shadow: 1px 1px 3px rgba(255,255,255,0.8);
+        }
+
+        .food-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 35px;
+        }
+
+        /* Restaurant Card Styling */
+        .res-card {
+            border-radius: 15px;
+            overflow: hidden;
+            background-color: #ffffff;
+            transition: 0.3s all ease-in-out;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            cursor: pointer;
+        }
+
+        .res-card:hover {
+            box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+            transform: translateY(-8px);
+        }
+
+        .res-img {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+        }
+
+        .res-details {
+            padding: 18px;
+        }
+
+        .res-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .res-name {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1c1c1c;
+        }
+
+        .res-rating {
+            background-color: #24963f;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        .res-rating.average {
+             background-color: #db7c38;
+        }
+
+        .res-cuisine {
+            color: #696969;
+            font-size: 15px;
+            margin-bottom: 12px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        .res-footer {
+            display: flex;
+            justify-content: space-between;
+            color: #696969;
+            font-size: 14px;
+            border-top: 1px solid #f0f0f0;
+            padding-top: 12px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c2c2c;
+            padding: 30px;
+            text-align: center;
+            font-size: 14px;
+            color: #b0b0b0;
+            margin-top: 0;
+        }
+        
+        footer strong {
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-left" style="font-weight:600; font-size: 20px;">Get the App</div>
+        <nav class="nav-links">
+            <a href="#">Add restaurant</a>
+            <a href="#">Log in</a>
+            <a href="#">Sign up</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-logo">zomato</div>
+        <h2 class="hero-tagline">Discover the best food & drinks in your City</h2>
+        
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="Search for restaurant, cuisine or a dish">
+            <button class="search-btn">Search</button>
+        </div>
+    </section>
+
+    <section class="options-section">
+        <div class="option-card">
+            <img src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" class="option-img" alt="Order Online">
+            <div class="option-info">
+                <h3>Order Online</h3>
+                <p>Stay home and order to your doorstep</p>
+            </div>
+        </div>
+        
+        <div class="option-card">
+            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" class="option-img" alt="Dining">
+            <div class="option-info">
+                <h3>Dining</h3>
+                <p>View the city's favourite dining venues</p>
+            </div>
+        </div>
+
+        <div class="option-card">
+            <img src="https://images.unsplash.com/photo-1566737236500-c8ac43014a67?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" class="option-img" alt="Nightlife and Clubs">
+            <div class="option-info">
+                <h3>Nightlife and Clubs</h3>
+                <p>Explore the city's top nightlife outlets</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="listings-section">
+        <h2 class="section-title">Popular restaurants around you</h2>
+        
+        <div class="food-grid">
+            
+            <div class="res-card">
+                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" class="res-img" alt="Burger King">
+                <div class="res-details">
+                    <div class="res-header">
+                        <span class="res-name">Burger King</span>
+                        <span class="res-rating">4.2 ★</span>
+                    </div>
+                    <div class="res-cuisine">Burger, Fast Food, Beverages</div>
+                    <div class="res-footer">
+                        <span>₹350 for two</span>
+                        <span>30 min</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="res-card">
+                <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" class="res-img" alt="Pizza Hut">
+                <div class="res-details">
+                    <div class="res-header">
+                        <span class="res-name">Pizza Hut</span>
+                        <span class="res-rating average">3.9 ★</span>
+                    </div>
+                    <div class="res-cuisine">Pizza, Italian, Pasta</div>
+                    <div class="res-footer">
+                        <span>₹600 for two</span>
+                        <span>45 min</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="res-card">
+                <img src="https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" class="res-img" alt="KFC">
+                <div class="res-details">
+                    <div class="res-header">
+                        <span class="res-name">KFC</span>
+                        <span class="res-rating">4.0 ★</span>
+                    </div>
+                    <div class="res-cuisine">Burger, Fast Food, Crispy Chicken</div>
+                    <div class="res-footer">
+                        <span>₹450 for two</span>
+                        <span>35 min</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="res-card">
+                <img src="https://images.unsplash.com/photo-1525755662778-989d0524087e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" class="res-img" alt="Mainland China">
+                <div class="res-details">
+                    <div class="res-header">
+                        <span class="res-name">Mainland China</span>
+                        <span class="res-rating">4.5 ★</span>
+                    </div>
+                    <div class="res-cuisine">Chinese, Asian, Sushi, Dim Sum</div>
+                    <div class="res-footer">
+                        <span>₹1,200 for two</span>
+                        <span>50 min</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="res-card">
+                <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" class="res-img" alt="Dessert">
+                <div class="res-details">
+                    <div class="res-header">
+                        <span class="res-name">Baskin Robbins</span>
+                        <span class="res-rating">4.6 ★</span>
+                    </div>
+                    <div class="res-cuisine">Ice Cream, Desserts, Shakes</div>
+                    <div class="res-footer">
+                        <span>₹300 for two</span>
+                        <span>25 min</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="res-card">
+                <img src="https://images.unsplash.com/photo-1589302168068-964664d93dc0?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" class="res-img" alt="Biryani">
+                <div class="res-details">
+                    <div class="res-header">
+                        <span class="res-name">Biryani Blues</span>
+                        <span class="res-rating">4.1 ★</span>
+                    </div>
+                    <div class="res-cuisine">Biryani, Kebab, Mughlai, North Indian</div>
+                    <div class="res-footer">
+                        <span>₹550 for two</span>
+                        <span>40 min</span>
+                    </div>
+                </div>
+            </div>
+
+             <div class="res-card">
+                <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" class="res-img" alt="Sushi">
+                <div class="res-details">
+                    <div class="res-header">
+                        <span class="res-name">Sushi Junction</span>
+                        <span class="res-rating">4.4 ★</span>
+                    </div>
+                    <div class="res-cuisine">Japanese, Sushi, Poke Bowls</div>
+                    <div class="res-footer">
+                        <span>₹900 for two</span>
+                        <span>45 min</span>
+                    </div>
+                </div>
+            </div>
+
+             <div class="res-card">
+                <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" class="res-img" alt="Healthy Food">
+                <div class="res-details">
+                    <div class="res-header">
+                        <span class="res-name">Green Fuel</span>
+                        <span class="res-rating average">3.8 ★</span>
+                    </div>
+                    <div class="res-cuisine">Healthy, Salads, Juices, Keto</div>
+                    <div class="res-footer">
+                        <span>₹400 for two</span>
+                        <span>30 min</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+</body>
+</html>
