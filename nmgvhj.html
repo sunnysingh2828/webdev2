@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zomato Clone | Best Food & Drinks</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         /* --- CSS STYLING --- */
         
@@ -42,17 +42,11 @@
             margin-left: 25px;
             font-size: 18px;
             font-weight: 300;
-            transition: 0.2s;
-        }
-        
-        .nav-links a:hover {
-            font-weight: 500;
         }
 
         /* Hero Section */
         .hero {
             height: 60vh;
-            /* Dark overlay on hero image so text pops */
             background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
@@ -65,205 +59,173 @@
         }
 
         .hero-logo {
-            font-size: 70px;
+            font-size: 60px;
             font-weight: 800;
             font-style: italic;
             margin-bottom: 10px;
         }
 
         .hero-tagline {
-            font-size: 32px;
+            font-size: 30px;
             margin-bottom: 30px;
             font-weight: 300;
         }
 
-        /* Search Bar */
         .search-container {
             background: white;
             padding: 10px;
-            border-radius: 10px;
+            border-radius: 8px;
             display: flex;
             width: 50%;
-            min-width: 320px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            min-width: 300px;
         }
 
         .search-input {
             border: none;
             outline: none;
-            padding: 10px 15px;
+            padding: 10px;
             flex-grow: 1;
             font-size: 16px;
         }
 
         .search-btn {
-            background-color: #ef4f5f; /* Zomato Red */
+            background-color: #ef4f5f;
             color: white;
             border: none;
-            padding: 10px 25px;
-            border-radius: 6px;
+            padding: 10px 20px;
+            border-radius: 5px;
             cursor: pointer;
-            font-weight: 600;
-            font-size: 16px;
-            transition: background-color 0.2s;
-        }
-
-        .search-btn:hover {
-            background-color: #d63d4d;
+            font-weight: bold;
         }
 
         /* Options Section */
         .options-section {
-            padding: 50px 10%;
+            padding: 40px 10%;
             display: flex;
             justify-content: space-between;
-            gap: 25px;
+            gap: 20px;
             flex-wrap: wrap;
         }
 
         .option-card {
             flex: 1;
-            min-width: 280px;
+            min-width: 250px;
             border: 1px solid #e8e8e8;
-            border-radius: 15px;
+            border-radius: 12px;
             overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease;
             cursor: pointer;
         }
 
         .option-card:hover {
-            transform: scale(1.03);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transform: scale(1.02);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
         .option-img {
-            height: 180px;
+            height: 160px;
             width: 100%;
             object-fit: cover;
         }
 
         .option-info {
-            padding: 15px 20px;
+            padding: 15px;
         }
 
         .option-info h3 {
-            font-size: 22px;
+            font-size: 20px;
             margin-bottom: 5px;
             color: #333;
-            font-weight: 500;
-        }
-        
-        .option-info p {
-            color: #666;
-            font-weight: 300;
         }
 
-        /* Listings Section with Visible Background */
+        /* Listings Section with Background Image */
         .listings-section {
-            padding: 50px 10%;
-            /* Lighter overlay (0.5 opacity) to make the background image visible */
-            background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+            padding: 40px 10%;
+            /* Background image with white overlay */
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed; /* Parallax effect */
+            background-attachment: fixed; 
         }
 
         .section-title {
-            font-size: 32px;
-            margin-bottom: 35px;
+            font-size: 30px;
+            margin-bottom: 30px;
             font-weight: 500;
-            color: #2c2c2c;
-            /* Subtle shadow to make title stand out from background */
-            text-shadow: 1px 1px 3px rgba(255,255,255,0.8);
+            position: relative;
         }
 
         .food-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 35px;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
         }
 
-        /* Restaurant Card Styling */
         .res-card {
             border-radius: 15px;
             overflow: hidden;
-            background-color: #ffffff;
-            transition: 0.3s all ease-in-out;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            cursor: pointer;
+            border: 1px solid #e8e8e8;
+            transition: 0.3s;
+            background-color: white;
         }
 
         .res-card:hover {
-            box-shadow: 0 12px 25px rgba(0,0,0,0.2);
-            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            border-color: transparent;
+            transform: translateY(-5px);
         }
 
         .res-img {
             width: 100%;
-            height: 230px;
+            height: 220px;
             object-fit: cover;
         }
 
         .res-details {
-            padding: 18px;
+            padding: 15px;
         }
 
         .res-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .res-name {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 600;
-            color: #1c1c1c;
         }
 
         .res-rating {
             background-color: #24963f;
             color: white;
-            padding: 4px 8px;
+            padding: 2px 6px;
             border-radius: 6px;
-            font-size: 14px;
-            font-weight: 600;
-        }
-        
-        .res-rating.average {
-             background-color: #db7c38;
+            font-size: 13px;
+            font-weight: bold;
         }
 
         .res-cuisine {
             color: #696969;
-            font-size: 15px;
-            margin-bottom: 12px;
+            font-size: 14px;
+            margin-bottom: 10px;
             overflow: hidden;
             white-space: nowrap;
             text-overflow: ellipsis;
         }
 
-        .res-footer {
-            display: flex;
-            justify-content: space-between;
+        .res-price {
             color: #696969;
             font-size: 14px;
-            border-top: 1px solid #f0f0f0;
-            padding-top: 12px;
         }
 
-        /* Footer */
         footer {
-            background-color: #2c2c2c;
-            padding: 30px;
+            background-color: #f8f8f8;
+            padding: 20px;
             text-align: center;
-            font-size: 14px;
-            color: #b0b0b0;
-            margin-top: 0;
-        }
-        
-        footer strong {
-            color: white;
+            font-size: 12px;
+            color: #666;
         }
 
     </style>
@@ -271,7 +233,7 @@
 <body>
 
     <header>
-        <div class="nav-left" style="font-weight:600; font-size: 20px;">Get the App</div>
+        <div class="nav-left" style="font-weight:bold;">Get the App</div>
         <nav class="nav-links">
             <a href="#">Add restaurant</a>
             <a href="#">Log in</a>
@@ -316,10 +278,9 @@
     </section>
 
     <section class="listings-section">
-        <h2 class="section-title">Popular restaurants around you</h2>
+        <h2 class="section-title">Popular localities in and around you</h2>
         
         <div class="food-grid">
-            
             <div class="res-card">
                 <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" class="res-img" alt="Burger King">
                 <div class="res-details">
@@ -328,70 +289,55 @@
                         <span class="res-rating">4.2 ★</span>
                     </div>
                     <div class="res-cuisine">Burger, Fast Food, Beverages</div>
-                    <div class="res-footer">
-                        <span>₹350 for two</span>
-                        <span>30 min</span>
-                    </div>
+                    <div class="res-price">₹350 for two</div>
                 </div>
             </div>
 
             <div class="res-card">
-                <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" class="res-img" alt="Pizza Hut">
+                <img src="https://images.unsplash.com/photo-1626082927389-d52b83b469d4?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" class="res-img" alt="Pizza Hut">
                 <div class="res-details">
                     <div class="res-header">
                         <span class="res-name">Pizza Hut</span>
-                        <span class="res-rating average">3.9 ★</span>
+                        <span class="res-rating">3.9 ★</span>
                     </div>
                     <div class="res-cuisine">Pizza, Italian, Pasta</div>
-                    <div class="res-footer">
-                        <span>₹600 for two</span>
-                        <span>45 min</span>
-                    </div>
+                    <div class="res-price">₹600 for two</div>
                 </div>
             </div>
 
             <div class="res-card">
-                <img src="https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" class="res-img" alt="KFC">
+                <img src="https://images.unsplash.com/photo-1562967914-608f82629710?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" class="res-img" alt="KFC">
                 <div class="res-details">
                     <div class="res-header">
                         <span class="res-name">KFC</span>
                         <span class="res-rating">4.0 ★</span>
                     </div>
-                    <div class="res-cuisine">Burger, Fast Food, Crispy Chicken</div>
-                    <div class="res-footer">
-                        <span>₹450 for two</span>
-                        <span>35 min</span>
-                    </div>
+                    <div class="res-cuisine">Burger, Fast Food, Biryani</div>
+                    <div class="res-price">₹450 for two</div>
                 </div>
             </div>
 
             <div class="res-card">
-                <img src="https://images.unsplash.com/photo-1525755662778-989d0524087e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" class="res-img" alt="Mainland China">
+                <img src="https://images.unsplash.com/photo-1563245372-f21720e3260d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" class="res-img" alt="Chinese">
                 <div class="res-details">
                     <div class="res-header">
                         <span class="res-name">Mainland China</span>
                         <span class="res-rating">4.5 ★</span>
                     </div>
-                    <div class="res-cuisine">Chinese, Asian, Sushi, Dim Sum</div>
-                    <div class="res-footer">
-                        <span>₹1,200 for two</span>
-                        <span>50 min</span>
-                    </div>
+                    <div class="res-cuisine">Chinese, Asian, Sushi</div>
+                    <div class="res-price">₹1,200 for two</div>
                 </div>
             </div>
 
             <div class="res-card">
-                <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" class="res-img" alt="Dessert">
+                <img src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" class="res-img" alt="Dessert">
                 <div class="res-details">
                     <div class="res-header">
                         <span class="res-name">Baskin Robbins</span>
                         <span class="res-rating">4.6 ★</span>
                     </div>
-                    <div class="res-cuisine">Ice Cream, Desserts, Shakes</div>
-                    <div class="res-footer">
-                        <span>₹300 for two</span>
-                        <span>25 min</span>
-                    </div>
+                    <div class="res-cuisine">Ice Cream, Desserts</div>
+                    <div class="res-price">₹300 for two</div>
                 </div>
             </div>
 
@@ -402,49 +348,16 @@
                         <span class="res-name">Biryani Blues</span>
                         <span class="res-rating">4.1 ★</span>
                     </div>
-                    <div class="res-cuisine">Biryani, Kebab, Mughlai, North Indian</div>
-                    <div class="res-footer">
-                        <span>₹550 for two</span>
-                        <span>40 min</span>
-                    </div>
+                    <div class="res-cuisine">Biryani, Kebab, North Indian</div>
+                    <div class="res-price">₹550 for two</div>
                 </div>
             </div>
-
-             <div class="res-card">
-                <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" class="res-img" alt="Sushi">
-                <div class="res-details">
-                    <div class="res-header">
-                        <span class="res-name">Sushi Junction</span>
-                        <span class="res-rating">4.4 ★</span>
-                    </div>
-                    <div class="res-cuisine">Japanese, Sushi, Poke Bowls</div>
-                    <div class="res-footer">
-                        <span>₹900 for two</span>
-                        <span>45 min</span>
-                    </div>
-                </div>
-            </div>
-
-             <div class="res-card">
-                <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" class="res-img" alt="Healthy Food">
-                <div class="res-details">
-                    <div class="res-header">
-                        <span class="res-name">Green Fuel</span>
-                        <span class="res-rating average">3.8 ★</span>
-                    </div>
-                    <div class="res-cuisine">Healthy, Salads, Juices, Keto</div>
-                    <div class="res-footer">
-                        <span>₹400 for two</span>
-                        <span>30 min</span>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </section>
 
+    <footer>
+        <p>By continuing past this page, you agree to our Terms of Service, Cookie Policy, and Content Policies. All trademarks are properties of their respective owners. 2024 © Zomato™ Ltd.</p>
+    </footer>
 
 </body>
 </html>
-NAME -SUNNY SINGH
-ADM NO.-2025B15410084
