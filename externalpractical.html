@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Product Grid</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            
+            background: #f5f5f5;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .product-grid {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            padding: 40px;
+            flex-wrap: wrap;
+        }
+
+        .product-card {
+            background: white;
+            width: 250px;
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 1px 1px 10px #24e1e1;
+            transition: transform 0.2s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-card img {
+            width: 55%;
+            height: 150px;
+            border-radius: 10px;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        .product-title {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .product-desc {
+            font-size: 14px;
+            color: #555;
+            margin: 5px 0;
+        }
+
+        .product-price {
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>Responsive Product Grid</h2>
+
+<!-- PRODUCT GRID -->
+<div class="product-grid">
+
+    <div class="product-card">
+        <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSuK9ZqEUBF2aRe0E93UAOTJilxYjlcasCIZV1zCewV_Aiaeetcz0xFQGz8lUtFzwAMGqRwb-DMODQphC8_bas8_z5uW-q8C5IVp9zkwMR9sAEnYFe_GZ9Alhj4F6nx70nHw8aa4_97&usqp=CAc" alt="Product 1">
+        <div class="product-title">Product 1</div>
+        <div class="product-desc">High-quality item with great features.</div>
+        <div class="product-price">₹1,69,900</div>
+    </div>
+
+    <div class="product-card">
+        <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTrgcMZY-oEpI3We7HBvoeuuoWprgeq-2A8LgtfZjbp7HnQkV89CmRvxgRNxzJ7SdnuZ8aAJoiozU6yqzTb0H6Lo50mJEjNHApJ7FCY0KJHKojepDd8Fh7F" alt="Product 2">
+        <div class="product-title">Product 2</div>
+        <div class="product-desc">Durable and stylish for daily use.</div>
+        <div class="product-price">₹1,89,900</div>
+    </div>
+
+    <div class="product-card">
+        <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSuCvsnq_Lntu685apJgjpE7oYDEu2vTFDzE0s64ahN0CMWs4h86L4B92HD3MoS5F-FE_woeRhjP0gEww40PUyU58YDrsOrXLyYj0JkS11nsr59ulZZ5RiRlQ" alt="Product 3">
+        <div class="product-title">Product 3</div>
+        <div class="product-desc">Lightweight and comfortable.</div>
+        <div class="product-price">₹25,900</div>
+    </div>
+
+    <div class="product-card">
+        <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcR8fDVJa0WNJ5jlKq_udOZ6llpGt1ejyH5IEbiWO3m3Yy5WFNHaxjA3wfTM2g4J2pXCjlzL0d2dfvuKK6qdoLgwOqGH8VQKNCkA61Bxb5NYaZftN_Zlprlmaw" alt="Product 4">
+        <div class="product-title">Product 4</div>
+        <div class="product-desc">Trendy design with premium quality.</div>
+        <div class="product-price">₹59,900</div>
+    </div>
+
+</div>
+
+</body>
+</html>

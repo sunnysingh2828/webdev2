@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Class Component Example</title>
+</head>
+<body>
+
+<div id="app"></div>
+
+<script>
+class MyComponent {
+    constructor(name) {
+        this.name = name;
+    }
+
+    render() {
+        return `<h1>Hello, ${this.name} 👋</h1>`;
+    }
+}
+
+// Create object
+let component = new MyComponent("Sunny");
+
+// Display on page
+document.getElementById("app").innerHTML = component.render();
+</script>
+
+</body>
+</html>
