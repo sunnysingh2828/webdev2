@@ -1,38 +1,44 @@
-function calculateResult() {
-    const n = document.getElementById("subjects").value;
-    let i;
-    let total = 0;
-    for(i = 0; i < n; i++){
-        let x = parseFloat(prompt("Enter the subject no." + (i+1)));
-        total += x;
-    }
-    let avg = total / n;
-    let grade;
-    if(avg > 90){
-        grade = 'A+';
-    }
-    else{
-        if(avg > 75){
-            grade = 'A';
+let heading = document.getElementById("mainHeading");
+let paragraph = document.getElementById("paragraph");
+let input = document.getElementById("userInput");
+
+let fontSize = 16;
+
+document.getElementById("changeTextBtn").addEventListener("click",
+    function () {
+        if (input.value !== "") {
+            heading.innerHTML = input.value;
         }
-        else{
-            if(avg > 40){
-                grade = 'B';
-            }
-            else{
-                grade = 'F';
-            }
-        }
-    }
-    let rs;
-    if(avg > 40){
-        rs = 'Pass';
-    }
-    else{
-        rs = 'fail';
-    }
+    });
 
-    let result = document.getElementById("result").innerHTML="Total Marks" + total + "<br/>" + "Average Marks" + avg + "<br/>" + "Grade" + grade + "<br/>" + "Result" + rs + "<br/>";
+    document.getElementById("bgColorBtn").onclick = function () {
+        document.body.style.backgroundColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+    };
+
+    document.getElementById("fontSizeBtn").addEventListener("click", 
+        function () {
+            fontSize += 2;
+            paragraph.style.fontSize = fontSize + "px";
+        });
+
+document.getElementById("toggleBtn").addEventListener("click", function () {
+    if (paragraph.style.display === "none") {
+        paragraph.style.display = "block";
+    } else {
+        paragraph.style.display = "none";
+    }
+});
 
 
-}
+
+
+
+
+    document.getElementById("resetBtn").addEventListener("click", 
+        function () {
+            heading.innerHTML = "Welcome to JavaScript Lab";
+            paragraph.style.display = "block";
+            paragraph.style.fontSize = "16px";
+            document.body.style.backgroundColor = "#f4f4f4";                input.value = "";
+                fontSize = 16;
+            });
